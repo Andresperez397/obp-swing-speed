@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Bat Speed and Exit Velocity: Project Summary</title>
+<style>
+  @page { size: Letter; margin: 0.55in 0.6in; }
+  :root { --ink:#0b0b0b; --ink2:#52514e; --rule:#e4e3df; --accent:#2a78d6; }
+  body { font: 10.2pt/1.42 "Helvetica Neue", Arial, sans-serif; color: var(--ink); margin: 0; background:#fff; }
+  h1 { font-size: 17pt; margin: 0 0 2px; letter-spacing: -0.2px; }
+  .sub { color: var(--ink2); margin: 0 0 10px; }
+  h2 { font-size: 11pt; margin: 14px 0 4px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.6px; }
+  p { margin: 4px 0 6px; }
+  .meta { display:flex; flex-wrap:wrap; gap:4px 18px; font-size:9pt; color:var(--ink2); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:5px 0; margin-bottom:8px; }
+  .meta a, .foot a { color: inherit; text-decoration: none; }
+  .grid { display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  ul { margin: 4px 0 6px 16px; padding: 0; } li { margin: 2px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 9pt; margin: 4px 0; }
+  th, td { text-align: left; padding: 3px 6px; border-bottom: 1px solid var(--rule); }
+  th { color: var(--ink2); font-weight: 600; } td.n { text-align: right; font-variant-numeric: tabular-nums; }
+  tr.best td { font-weight: 700; }
+  img { width: 100%; display:block; }
+  .cap { font-size: 8.5pt; color: var(--ink2); margin-top: 2px; }
+  .pb { page-break-before: always; }
+  .foot { font-size: 8.3pt; color: var(--ink2); border-top:1px solid var(--rule); margin-top:10px; padding-top:5px; }
+</style></head><body>
+
+<h1>Where does bat speed come from, and how much of it becomes exit velocity?</h1>
+<p class="sub">Predicting bat speed for hitters a model has never seen, and checking the lab's bat–ball physics against 2025 MLB data.</p>
+<div class="meta"><span><b>Andres Perez</b>, M.S. Kinesiology (Biomechanics)</span><span>Python · statsmodels · scikit-learn</span><span>Code: <a href="https://github.com/Andresperez397/obp-swing-speed">github.com/Andresperez397/obp-swing-speed</a></span></div>
+
+<div class="grid">
+<div>
+<h2>Data</h2>
+<p>677 swings from 98 hitters in the OpenBiomechanics Project (Driveline Baseball): marker-based motion capture, about 120 swing metrics, exit velocity and HitTrax launch data, hitting off a machine at about 59 mph. The MLB comparison uses 118,793 balls in play with 2025 Statcast bat tracking.</p>
+<h2>Approach</h2>
+<ul>
+<li><b>Audit, then a frozen plan:</b> 22 redundant duplicate variables and 51 invalid pitch speeds found and handled before modeling; plan committed to git first.</li>
+<li><b>Unseen hitters:</b> grouped CV by hitter, 10 folds × 20 repeats; leakage-tested.</li>
+<li><b>Fair tuning:</b> elastic net and boosted trees both tuned by grouped inner CV.</li>
+<li><b>Physics:</b> collision efficiency q from EV = q·v<sub>pitch</sub> + (1+q)·v<sub>bat</sub> (Nathan 2003).</li>
+</ul>
+</div>
+<div>
+<h2>Findings</h2>
+<ul>
+<li><b>Bat speed is a hitter trait:</b> 86% of its variance is between hitters (ICC 0.86).</li>
+<li><b>Size gets a quarter of the way:</b> body and bat size explain R² 0.24 for new hitters. Pelvis and trunk metrics add +0.06, not separable from zero; arm and hand metrics add +0.20.</li>
+<li><b>Simple beat flexible:</b> tuned boosted trees trailed the elastic net. A leaky random split made them look best (0.78 vs 0.40).</li>
+<li><b>Physics checks out:</b> between hitters, +1 mph bat speed = +1.22 mph exit velocity, matching 1 + q. Within a hitter it's only +0.48.</li>
+<li><b>Lab vs MLB:</b> q = 0.236 in the lab and 0.209 in MLB near squared-up contact. Both are near the textbook value of about 0.2.</li>
+</ul>
+</div>
+</div>
+
+<img src="figures/fig1_model_ladder.png" alt="Model ladder" style="width:86%;margin:0 auto">
+<p class="cap">Out-of-sample R² for maximum bat speed by information block. Filled: validated on held-out hitters, with 95% CI. Hollow: the same model under a random swing split.</p>
+
+<div class="pb"></div>
+<h2>Model results (held-out hitters)</h2>
+<table>
+<tr><th>Model</th><th class="n">R²</th><th class="n">95% CI</th><th class="n">RMSE (mph)</th><th class="n">R², leaky split</th></tr>
+<tr><td>Body mass, height, bat size, handedness</td><td class="n">0.24</td><td class="n">0.06–0.37</td><td class="n">4.28</td><td class="n">0.30</td></tr>
+<tr><td>+ age and playing level</td><td class="n">0.24</td><td class="n">0.08–0.38</td><td class="n">4.28</td><td class="n">0.33</td></tr>
+<tr><td>+ 65 pelvis and trunk metrics (elastic net)</td><td class="n">0.31</td><td class="n">0.15–0.44</td><td class="n">4.08</td><td class="n">0.51</td></tr>
+<tr class="best"><td>+ 27 arm and hand metrics (elastic net)</td><td class="n">0.52</td><td class="n">0.38–0.61</td><td class="n">3.40</td><td class="n">0.69</td></tr>
+<tr><td>Same, tuned boosted trees</td><td class="n">0.40</td><td class="n">0.25–0.51</td><td class="n">3.81</td><td class="n">0.78</td></tr>
+</table>
+<p class="cap">Mean-model RMSE 4.91 mph. R² and RMSE: averages over 20 repeats of 10-fold CV grouped by hitter. CIs: hitter bootstrap (2,000 resamples) of the first repeat.</p>
+
+<div class="grid">
+<div><img src="figures/fig3_ev_slopes.png" alt="Exit velocity slopes"><p class="cap">Exit velocity per +1 mph of bat speed, adjusted for attack angle, body mass and handedness.</p></div>
+<div><img src="figures/fig4_collision_q.png" alt="Collision efficiency"><p class="cap">Collision efficiency q at three quantiles. MLB intervals are too narrow to see.</p></div>
+</div>
+<img src="figures/fig5_physics_scatter.png" alt="Physics scatter" style="width:84%;margin:0 auto">
+
+<h2>Limitations</h2>
+<p>The sample is 98 mostly college hitters at one facility, hitting a machine at about 59 mph, so results may not transfer directly to game swings. The lab bat's material isn't documented, and it affects collision efficiency. The MLB comparison is exploratory: different populations, pitch speeds and measurement systems. With 98 hitters, R² gains under about 0.1 aren't separable from zero.</p>
+<p class="foot">Data: The OpenBiomechanics Project, Driveline Baseball (CC BY-NC-SA 4.0); Baseball Savant / Statcast (MLB Advanced Media). A derived work under the same license, not affiliated with or endorsed by Driveline or MLB.</p>
+</body></html>
