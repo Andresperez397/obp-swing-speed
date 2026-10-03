@@ -1,0 +1,271 @@
+{
+  "rows": {
+    "metadata": 677,
+    "poi": 677,
+    "hittrax": 604
+  },
+  "hitters": 98,
+  "swings_per_hitter": {
+    "count": 98.0,
+    "mean": 6.91,
+    "std": 1.46,
+    "min": 4.0,
+    "25%": 5.0,
+    "50%": 8.0,
+    "75%": 8.0,
+    "max": 9.0
+  },
+  "one_session_per_hitter": true,
+  "linkage": {
+    "poi_in_metadata": 1.0,
+    "hittrax_in_metadata": 1.0,
+    "unique_swing_ids": true
+  },
+  "playing_level_swings": {
+    "college": 517,
+    "high_school": 83,
+    "milb": 47,
+    "independent": 30
+  },
+  "playing_level_hitters": {
+    "college": 74,
+    "high_school": 12,
+    "milb": 8,
+    "independent": 4
+  },
+  "hitter_side_hitters": {
+    "R": 71,
+    "L": 27
+  },
+  "poi_missing_share": {
+    "exit_velo_mph_x": 0.0074,
+    "blast_bat_speed_mph_x": 0.0443
+  },
+  "force_plate_columns_in_poi": [],
+  "near_duplicate_pairs": [
+    {
+      "a": "bat_torso_angle_connection_x",
+      "b": "bat_torso_angle_ds_y",
+      "abs_r": 1.0,
+      "identical": true
+    },
+    {
+      "a": "hand_speed_mag_max_x",
+      "b": "hand_speed_mag_seq_max_x",
+      "abs_r": 1.0,
+      "identical": true
+    },
+    {
+      "a": "pelvis_angle_fm_x",
+      "b": "pelvis_fm_x",
+      "abs_r": 1.0,
+      "identical": false
+    },
+    {
+      "a": "pelvis_angle_fm_y",
+      "b": "pelvis_fm_y",
+      "abs_r": 1.0,
+      "identical": true
+    },
+    {
+      "a": "pelvis_angle_fm_z",
+      "b": "pelvis_fm_z",
+      "abs_r": 1.0,
+      "identical": false
+    },
+    {
+      "a": "pelvis_angle_fp_x",
+      "b": "pelvis_launchpos_x",
+      "abs_r": 1.0,
+      "identical": false
+    },
+    {
+      "a": "pelvis_angle_fp_y",
+      "b": "pelvis_launchpos_y",
+      "abs_r": 1.0,
+      "identical": true
+    },
+    {
+      "a": "pelvis_angle_fp_z",
+      "b": "pelvis_launchpos_z",
+      "abs_r": 1.0,
+      "identical": false
+    },
+    {
+      "a": "torso_angle_fm_x",
+      "b": "torso_fm_x",
+      "abs_r": 1.0,
+      "identical": false
+    },
+    {
+      "a": "torso_angle_fm_y",
+      "b": "torso_fm_y",
+      "abs_r": 1.0,
+      "identical": true
+    },
+    {
+      "a": "torso_angle_fm_z",
+      "b": "torso_fm_z",
+      "abs_r": 1.0,
+      "identical": false
+    },
+    {
+      "a": "torso_angle_fp_x",
+      "b": "torso_launchpos_x",
+      "abs_r": 1.0,
+      "identical": false
+    },
+    {
+      "a": "torso_angle_fp_y",
+      "b": "torso_launchpos_y",
+      "abs_r": 1.0,
+      "identical": true
+    },
+    {
+      "a": "torso_angle_fp_z",
+      "b": "torso_launchpos_z",
+      "abs_r": 1.0,
+      "identical": false
+    },
+    {
+      "a": "upper_arm_speed_mag_max_x",
+      "b": "upper_arm_speed_mag_seq_max_x",
+      "abs_r": 1.0,
+      "identical": true
+    },
+    {
+      "a": "upper_arm_speed_mag_max_x",
+      "b": "upper_arm_speed_mag_swing_max_velo_x",
+      "abs_r": 1.0,
+      "identical": true
+    },
+    {
+      "a": "x_factor_fm_z",
+      "b": "torso_pelvis_fm_x",
+      "abs_r": 1.0,
+      "identical": true
+    },
+    {
+      "a": "x_factor_fp_z",
+      "b": "torso_pelvis_launchpos_x",
+      "abs_r": 1.0,
+      "identical": true
+    },
+    {
+      "a": "pelvis_angular_velocity_seq_max_x",
+      "b": "pelvis_angular_velocity_swing_max_x",
+      "abs_r": 1.0,
+      "identical": true
+    },
+    {
+      "a": "torso_angular_velocity_fp_x",
+      "b": "torso_angular_velocity_stride_max_x",
+      "abs_r": 0.9979,
+      "identical": false
+    },
+    {
+      "a": "torso_angular_velocity_seq_max_x",
+      "b": "torso_angular_velocity_swing_max_x",
+      "abs_r": 1.0,
+      "identical": true
+    },
+    {
+      "a": "upper_arm_speed_mag_fp_x",
+      "b": "upper_arm_speed_mag_stride_max_velo_x",
+      "abs_r": 0.9976,
+      "identical": false
+    },
+    {
+      "a": "upper_arm_speed_mag_seq_max_x",
+      "b": "upper_arm_speed_mag_swing_max_velo_x",
+      "abs_r": 1.0,
+      "identical": true
+    }
+  ],
+  "ranges": {
+    "bat_speed_mph_max_x": {
+      "count": 677.0,
+      "mean": 67.07,
+      "std": 4.86,
+      "min": 51.39,
+      "max": 80.85
+    },
+    "bat_speed_mph_contact_x": {
+      "count": 677.0,
+      "mean": 66.2,
+      "std": 4.79,
+      "min": 50.86,
+      "max": 79.65
+    },
+    "blast_bat_speed_mph_x": {
+      "count": 647.0,
+      "mean": 68.21,
+      "std": 5.97,
+      "min": 46.1,
+      "max": 93.8
+    },
+    "exit_velo_mph_x": {
+      "count": 672.0,
+      "mean": 89.92,
+      "std": 7.55,
+      "min": 48.8,
+      "max": 107.0
+    },
+    "hand_speed_mag_max_x": {
+      "count": 677.0,
+      "mean": 1816.57,
+      "std": 229.77,
+      "min": 1293.91,
+      "max": 2622.41
+    },
+    "hand_speed_blast_bat_mph_max_x": {
+      "count": 677.0,
+      "mean": 21.45,
+      "std": 1.81,
+      "min": 16.72,
+      "max": 27.81
+    },
+    "attack_angle_contact_x": {
+      "count": 677.0,
+      "mean": 4.1,
+      "std": 5.88,
+      "min": -23.2,
+      "max": 22.65
+    }
+  },
+  "metadata_ranges": {
+    "session_mass_lbs": {
+      "mean": 188.47,
+      "min": 140.0,
+      "max": 260.0
+    },
+    "session_height_in": {
+      "mean": 70.74,
+      "min": 63.0,
+      "max": 77.0
+    },
+    "athlete_age": {
+      "mean": 20.12,
+      "min": 17.0,
+      "max": 31.0
+    },
+    "bat_weight_oz": {
+      "mean": 30.3,
+      "min": 29.0,
+      "max": 31.5
+    },
+    "bat_length_in": {
+      "mean": 33.29,
+      "min": 32.0,
+      "max": 34.0
+    }
+  },
+  "hittrax_pitch_speed": {
+    "zero_or_negative": 51,
+    "valid_n": 553,
+    "median": 59.2,
+    "p05": 55.0,
+    "p95": 62.9
+  },
+  "blast_vs_marker_bat_speed_r": 0.715
+}
