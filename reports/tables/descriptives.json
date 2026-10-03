@@ -1,0 +1,34 @@
+{
+  "column_roles": {
+    "id": 2,
+    "leakage": 10,
+    "duplicate": 22,
+    "outcome": 1,
+    "arm": 27,
+    "trunk": 65
+  },
+  "trunk_predictors": 65,
+  "arm_predictors": 27,
+  "within_hitter_r_max_vs_sweet_spot_speed": 0.886,
+  "within_hitter_sd_max_bat_speed": 1.72,
+  "lab_pitch_speed_valid": {
+    "count": 553.0,
+    "mean": 59.01,
+    "std": 3.03,
+    "min": 15.2,
+    "25%": 57.7,
+    "50%": 59.2,
+    "75%": 60.6,
+    "max": 65.9
+  },
+  "sweet_spot_speed": {
+    "count": 677.0,
+    "mean": 66.06,
+    "std": 4.77,
+    "min": 50.77,
+    "25%": 63.16,
+    "50%": 66.41,
+    "75%": 69.08,
+    "max": 79.54
+  }
+}

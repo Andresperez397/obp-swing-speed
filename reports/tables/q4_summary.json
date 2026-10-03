@@ -1,0 +1,64 @@
+{
+  "mlb_filtering": {
+    "pitches": 712528,
+    "with_bat_speed": 330422,
+    "balls_in_play": 124899,
+    "bunts_excluded": 560,
+    "analysis_rows": 118793,
+    "batters": 664
+  },
+  "descriptives": {
+    "mlb_bat_speed": {
+      "count": 118793.0,
+      "mean": 71.31,
+      "std": 6.59,
+      "min": 1.0,
+      "25%": 68.5,
+      "50%": 71.9,
+      "75%": 75.1,
+      "max": 88.0
+    },
+    "mlb_launch_speed": {
+      "count": 118793.0,
+      "mean": 88.93,
+      "std": 14.49,
+      "min": 5.6,
+      "25%": 80.4,
+      "50%": 91.7,
+      "75%": 99.9,
+      "max": 122.9
+    },
+    "mlb_release_speed": {
+      "count": 118793.0,
+      "mean": 89.45,
+      "std": 6.22,
+      "min": 31.5,
+      "25%": 85.4,
+      "50%": 90.4,
+      "75%": 94.2,
+      "max": 103.9
+    },
+    "lab_sweet_spot_speed": {
+      "count": 553.0,
+      "mean": 66.15,
+      "std": 4.91,
+      "min": 50.77,
+      "25%": 63.36,
+      "50%": 66.48,
+      "75%": 69.24,
+      "max": 79.54
+    },
+    "lab_exit_velo": {
+      "count": 553.0,
+      "mean": 90.1,
+      "std": 7.55,
+      "min": 48.8,
+      "25%": 86.5,
+      "50%": 91.1,
+      "75%": 95.0,
+      "max": 107.0
+    }
+  },
+  "plate_factor": 0.92,
+  "n_boot": 1000
+}
