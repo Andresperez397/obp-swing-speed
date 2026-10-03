@@ -54,10 +54,11 @@ def main() -> None:
     key = ["bat_speed_mph_max_x", "bat_speed_mph_contact_x", "blast_bat_speed_mph_x",
            "exit_velo_mph_x", "hand_speed_mag_max_x", "hand_speed_blast_bat_mph_max_x",
            "attack_angle_contact_x"]
-    out["ranges"] = p[key].describe().T[["count", "mean", "std", "min", "max"]].round(2).to_dict(orient="index")
-    out["metadata_ranges"] = m[["session_mass_lbs", "session_height_in", "athlete_age",
-                                "bat_weight_oz", "bat_length_in"]].describe().T[
-        ["mean", "min", "max"]].round(2).to_dict(orient="index")
+    key_desc = p[key].describe().T[["count", "mean", "std", "min", "max"]]
+    out["ranges"] = key_desc.round(2).to_dict(orient="index")
+    meta_cols = ["session_mass_lbs", "session_height_in", "athlete_age", "bat_weight_oz", "bat_length_in"]
+    meta_desc = m[meta_cols].describe().T[["mean", "min", "max"]]
+    out["metadata_ranges"] = meta_desc.round(2).to_dict(orient="index")
 
     zero = int((h["pitch"] <= 0).sum())
     valid = h.loc[h["pitch"] > 0, "pitch"]
