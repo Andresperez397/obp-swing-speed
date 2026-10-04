@@ -41,11 +41,13 @@ Under the rule fixed in advance (a block counts only if the 95% interval of its 
 - The boosted trees still trailed the elastic net: −0.11 R² with all kinematics (CI −0.20 to −0.02) and −0.16 at the trunk level (CI −0.27 to −0.04).
 - Under a random split, where a hitter's other swings sit in training, the trees looked like the best model (R² 0.78 against 0.40 on new hitters). The elastic net's inflation was smaller (0.69 against 0.52).
 
-**4. Bat speed turns into exit velocity at the rate the physics predicts, but only between hitters.**
+**4. Between hitters, bat speed turns into exit velocity at the rate the physics predicts. Within a hitter, the slope is much flatter.**
 - Adjusted for attack angle, body mass and handedness, a hitter who swings 1 mph faster than another hits the ball **1.22 mph harder** (CI 1.04–1.40).
 - When the *same* hitter swings 1 mph faster, exit velocity rises only **0.48 mph** (CI 0.30–0.66).
 - The between-hitter slope matches the collision-physics value 1 + q = 1.24 estimated independently below.
-- The weaker within-hitter slope isn't explained by measurement noise: the two bat-speed measures agree closely from swing to swing (r = 0.89). A likely explanation is that a hitter's faster swings don't consistently square the ball up. That's a hypothesis, not something this data can prove.
+- The flatter within-hitter slope has two possible explanations, and this data can't separate them:
+  - **Contact quality:** a hitter's faster swings may not square the ball up as consistently.
+  - **Measurement noise:** swing-to-swing differences in bat speed are small (SD 1.7 mph). Two independent devices agree on them only weakly: within a hitter, motion-capture bat speed and the Blast sensor correlate r = 0.28. Noise in a predictor flattens its slope (regression dilution), so the true within-hitter effect may be larger than 0.48.
 - Hitters whose average attack angle is more upward hit the ball harder (+0.24 mph per degree, CI 0.08–0.41). Swing-to-swing changes in attack angle showed no effect.
 
 ![Exit velocity slopes](reports/figures/fig3_ev_slopes.png)
@@ -55,7 +57,7 @@ Under the rule fixed in advance (a block counts only if the 95% interval of its 
   - **lab:** q = 0.236 (CI 0.232–0.240)
   - **MLB:** q = 0.209 (CI 0.208–0.210)
 - Both are near the typical squared-up value of about 0.2.
-- The lab is more efficient by 0.027 near squared-up contact (CI 0.023–0.030) and by 0.064 at the median (CI 0.058–0.069). Hitting a 59 mph machine pitch, lab hitters square the ball up more consistently than MLB hitters facing 90+ mph pitches from real pitchers.
+- The lab is more efficient by 0.027 near squared-up contact (CI 0.023–0.030) and by 0.064 at the median (CI 0.058–0.069). A plausible reading is that hitters square up a 59 mph machine pitch more consistently than MLB hitters square up 90+ mph pitches from real pitchers.
 - Other contributors can't be ruled out: the lab's bat material isn't documented, and the two settings use different measurement systems.
 - The MLB estimate barely moves with the assumed pitch speed at the plate (q = 0.200–0.212 across the three plate-speed assumptions).
 
@@ -121,7 +123,7 @@ pytest -q
 ## References
 
 - Nathan AM. Characterizing the performance of baseball bats. *Am J Phys.* 2003;71(2):134-143.
-- MLB. Statcast glossary: Bat Speed (measured at the sweet spot, six inches from the head of the bat, at the point of contact).
+- MLB. Statcast glossary: Bat Speed (measured at the sweet spot, six inches from the head of the bat, at the point of contact). https://www.mlb.com/glossary/statcast/bat-speed
 - Driveline Baseball. The OpenBiomechanics Project. https://openbiomechanics.org
 
 ## Licensing and attribution

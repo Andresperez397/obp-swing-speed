@@ -10,6 +10,7 @@
   "trunk_predictors": 65,
   "arm_predictors": 27,
   "within_hitter_r_max_vs_sweet_spot_speed": 0.886,
+  "within_hitter_r_max_vs_blast_sensor": 0.284,
   "within_hitter_sd_max_bat_speed": 1.72,
   "lab_pitch_speed_valid": {
     "count": 553.0,

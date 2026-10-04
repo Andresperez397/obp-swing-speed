@@ -14,3 +14,9 @@ No pre-specified analysis was changed, dropped or added. All five Q2 models, bot
 ## Differences from the portfolio-level plan (written before the data audit)
 
 - The portfolio plan listed a "ground reaction forces" block. The data audit found no force-plate variables in the hitting summary files (they exist only in the raw full-signal archives), so this frozen analysis plan never included one.
+
+## Final review corrections (2026-10-03; interpretation only, no analysis changes)
+
+- **Within-hitter slope:** the README had said the flatter within-hitter slope "isn't explained by measurement noise", citing r = 0.89 between two bat-speed measures. Both measures come from the same motion-capture markers, so they share error. Against an independent device (Blast sensor), within-hitter agreement is only r = 0.28 (`scripts/descriptives.py`). The README now says the data can't separate contact quality from measurement noise, and that noise would flatten the slope.
+- **Lab vs MLB efficiency gap:** "lab hitters square the ball up more consistently" is now presented as a plausible reading, not a finding.
+- **Reference value:** the collision-efficiency chart had shaded 0.20–0.25 as "typical (Nathan 2003)". The paper gives q ≈ 0.2 for a typical sweet-spot collision, so the chart now shows a single reference line at 0.2.

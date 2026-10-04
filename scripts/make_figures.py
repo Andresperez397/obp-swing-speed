@@ -100,7 +100,7 @@ def collision_q():
         x = np.arange(len(s)) + (k - 0.5) * 0.18
         ax.vlines(x, s["ci_low"], s["ci_high"], color=c, lw=2)
         ax.plot(x, s["q"], "o", ms=8, color=c, label=lab)
-    ax.axhspan(0.2, 0.25, color=GRID, zorder=0, label="Typical squared-up q (Nathan 2003)")
+    ax.axhline(0.2, color=INK2, lw=1.2, ls="--", zorder=0, label="Typical sweet-spot q ≈ 0.2 (Nathan 2003)")
     ax.set_xticks(np.arange(3), ["median (τ=0.50)", "τ=0.75", "near squared-up (τ=0.90)"])
     ax.set_ylabel("Collision efficiency q")
     ax.set_title("Collision efficiency in the lab and in MLB")
