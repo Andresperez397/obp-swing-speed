@@ -47,7 +47,7 @@ Under the rule fixed in advance (a block counts only if the 95% interval of its 
 - The between-hitter slope matches the collision-physics value 1 + q = 1.24 estimated independently below.
 - The flatter within-hitter slope has two possible explanations, and this data can't separate them:
   - **Contact quality:** a hitter's faster swings may not square the ball up as consistently.
-  - **Measurement noise:** swing-to-swing differences in bat speed are small (SD 1.7 mph). Two independent devices agree on them only weakly: within a hitter, motion-capture bat speed and the Blast sensor correlate r = 0.28. Noise in a predictor flattens its slope (regression dilution), so the true within-hitter effect may be larger than 0.48.
+  - **Measurement noise:** swing-to-swing differences in bat speed are small (under 2 mph; see finding 1). Two independent devices agree on them only weakly: within a hitter, motion-capture bat speed and the Blast sensor correlate r = 0.28. Noise in a predictor flattens its slope (regression dilution), so the true within-hitter effect may be larger than 0.48.
 - Hitters whose average attack angle is more upward hit the ball harder (+0.24 mph per degree, CI 0.08–0.41). Swing-to-swing changes in attack angle showed no effect.
 
 ![Exit velocity slopes](reports/figures/fig3_ev_slopes.png)
