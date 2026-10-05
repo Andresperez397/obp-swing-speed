@@ -1,5 +1,7 @@
 # Where does bat speed come from, and how much of it becomes exit velocity?
 
+[![tests](https://github.com/Andresperez397/obp-swing-speed/actions/workflows/ci.yml/badge.svg)](https://github.com/Andresperez397/obp-swing-speed/actions/workflows/ci.yml)
+
 **What it is:** a pre-registered biomechanics analysis of 677 swings from 98 hitters (OpenBiomechanics Project, Driveline Baseball). It asks:
 - How much of a hitter's bat speed can be predicted for a hitter the model has never seen, and from which parts of the body?
 - How much of bat speed turns into exit velocity?
@@ -93,7 +95,7 @@ reports/              tables, figures, two-page summary (HTML and PDF)
 - **Honest uncertainty.** 95% intervals come from 2,000 bootstrap resamples of hitters (not swings).
 - **Mixed models.** Random-intercept models give the variance split (ICC) and separate within-hitter from between-hitter effects of bat speed on exit velocity.
 - **Physics, not just correlation.** Collision efficiency *q* comes from the standard bat–ball relation EV = q·v_pitch + (1+q)·v_bat (Nathan 2003). It's estimated with no-intercept quantile regression in the lab and in MLB.
-- **Tests (14).** `tests/` checks:
+- **Tests (14).** CI runs the 9 that don't need the raw data on every push; the other 5 run locally after `fetch_data.py`. `tests/` checks:
   - every column has exactly one role
   - the joins keep every swing
   - blocks are nested and free of leakage and duplicates
