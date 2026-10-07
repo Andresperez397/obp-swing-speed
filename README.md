@@ -2,6 +2,14 @@
 
 [![tests](https://github.com/Andresperez397/obp-swing-speed/actions/workflows/ci.yml/badge.svg)](https://github.com/Andresperez397/obp-swing-speed/actions/workflows/ci.yml)
 
+## At a glance
+
+- **Question:** Where does bat speed come from, how much of it becomes exit velocity, and does the lab's bat–ball physics hold up in MLB?
+- **Answer:** For hitters the model had not seen, body size explains 24% of bat speed and arm and hand kinematics lift that to 52%. Between hitters, 1 mph more bat speed means 1.22 mph more exit velocity (physics predicts 1.24). Within a hitter it is only 0.48 mph, which may be contact quality or measurement noise.
+- **Why it matters:** It separates what bat speed can tell a hitting staff about a new hitter from what it can't, and shows where the lab and MLB agree.
+- **Start here:** [Two-page summary](reports/Bat%20Speed%20and%20Exit%20Velocity%20-%20Summary.pdf) · [exit-velocity slopes figure](reports/figures/fig3_ev_slopes.png)
+
+
 **What it is:** a pre-registered biomechanics analysis of 677 swings from 98 hitters (OpenBiomechanics Project, Driveline Baseball). It asks:
 - How much of a hitter's bat speed can be predicted for a hitter the model has never seen, and from which parts of the body?
 - How much of bat speed turns into exit velocity?
